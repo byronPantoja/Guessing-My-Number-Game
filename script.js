@@ -7,7 +7,7 @@ document.querySelector('.number').textContent = number;
 let score = 20;
 let highscore = 0;
 
-const displayMessage = function (message) {
+const displayMessage = (message) => {
   document.querySelector('.message').textContent = message;
 };
 
