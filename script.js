@@ -5,25 +5,31 @@ const number = Math.trunc(Math.random()*20)+1;
 document.querySelector('.number').textContent = number;
 
 let score = 20;
+let highscore = 0;
+
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
 
 document.querySelector('.check').addEventListener('click', function() {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
 
   if (!guess) {
-    document.querySelector('.message').textContent = '⛔️ No Number';
+    displayMessage('⛔️ No Number');
 
   } else if (guess === number) {
-    document.querySelector('.message').textContent = ' 🥳 You got it!!!';
+    displayMessage(' 🥳 You got it!!!');
 
   } else if (guess !== number) {
     if (score > 1) {
-      document.querySelector('.message').textContent = guess > number ? ' 🔭 Too High!' : ' 🕳 Too low';
+      displayMessage(guess > number ? ' 🔭 Too High!' : ' 🕳 Too low');
     score--;
     document.querySelector('.score').textContent = score;
     } else {
-    document.querySelector('.message').textContent = '🪓 You Lost.'
+      displayMessage('🪓 You Lost.');
     document.querySelector('.score').textContent = 0;  
     }
   }
+
 });
