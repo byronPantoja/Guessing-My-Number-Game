@@ -1,9 +1,8 @@
 'use strict';
 
-const number = Math.trunc(Math.random()*20)+1;
+let number = Math.trunc(Math.random()*20)+1;
 //displaying the answer number for development purposes
-document.querySelector('.number').textContent = number;
-
+document.querySelector('.number').textContent = number; 
 let score = 20;
 let highscore = 0;
 
@@ -41,5 +40,16 @@ document.querySelector('.check').addEventListener('click', function() {
     document.querySelector('.score').textContent = 0;  
     }
   }
+});
 
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  number = Math.trunc(Math.random() * 20) + 1;
+  displayMessage('Start guessing...');
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 });
