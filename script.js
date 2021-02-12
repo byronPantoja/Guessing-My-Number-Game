@@ -10,6 +10,10 @@ const displayMessage = (message) => {
   document.querySelector('.message').textContent = message;
 };
 
+const displayScore = (score) => {
+  document.querySelector('.score').textContent = score;
+}
+
 document.querySelector('.check').addEventListener('click', function() {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
@@ -34,10 +38,11 @@ document.querySelector('.check').addEventListener('click', function() {
     if (score > 1) {
       displayMessage(guess > number ? ' 🔭 Too High!' : ' 🕳 Too low');
     score--;
-    document.querySelector('.score').textContent = score;
+    //document.querySelector('.score').textContent = score;
+    displayScore(score);
     } else {
       displayMessage('🪓 You Lost.');
-    document.querySelector('.score').textContent = 0;  
+      displayScore(0);  
     }
   }
 });
