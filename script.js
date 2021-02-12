@@ -21,6 +21,16 @@ document.querySelector('.check').addEventListener('click', function() {
   } else if (guess === number) {
     displayMessage(' 🥳 You got it!!!');
 
+    document.querySelector('.number').textContent = number;
+
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
+
   } else if (guess !== number) {
     if (score > 1) {
       displayMessage(guess > number ? ' 🔭 Too High!' : ' 🕳 Too low');
