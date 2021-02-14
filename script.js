@@ -3,13 +3,14 @@
 let number = Math.trunc(Math.random()*20)+1;
 //displaying the answer number for development purposes
 document.querySelector('.number').textContent = number; 
+
 let score = 20;
 let highscore = 0;
 
+//Selecting Elements
 const displayMessage = (message) => {
   document.querySelector('.message').textContent = message;
 };
-
 const displayScore = (score) => {
   document.querySelector('.score').textContent = score;
 }
